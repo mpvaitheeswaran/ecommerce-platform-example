@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: inventory-service
+
+# default: not needed but showing for completeness
+eureka:
+  client:
+    # Try 5 times to connect before giving up
+    eureka-service-url-poll-interval-seconds: 5
+    fetch-registry: true
+    serviceUrl:
+      # Use the SERVICE NAME from your docker-compose file
+      defaultZone: http://service-registry:8762/eureka/
+  instance:
+    # Highly recommended for Docker environments
+    prefer-ip-address: true
