@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/orders")
 public class OrderController {
 
-    @GetMapping()
+    @GetMapping
     public String getOrders() {
         return "List of orders";
     }
 
-    @PostMapping()
+    @PostMapping
     public String createOrder() {
 //        Flow:
 //        1. Validate cart

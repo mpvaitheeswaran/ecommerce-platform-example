@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/payments")
 public class PaymentController {
 
-    @PostMapping()
+    @PostMapping
     public String initiatePayment() {
         // Flow:
         // 1. Validate payment details

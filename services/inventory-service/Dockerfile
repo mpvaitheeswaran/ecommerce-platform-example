@@ -10,6 +10,8 @@ COPY pom.xml .
 # This satisfies Maven's requirement that all <modules> exist
 COPY service-registry/pom.xml service-registry/
 COPY order-service/pom.xml order-service/
+COPY product-service/pom.xml product-service/
+COPY cart-service/pom.xml cart-service/
 COPY inventory-service/pom.xml inventory-service/
 COPY payment-service/pom.xml payment-service/
 COPY notification-service/pom.xml notification-service/

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController {
 
-    @GetMapping()
+    @GetMapping
     public String getUsers() {
         return "List of users";
     }

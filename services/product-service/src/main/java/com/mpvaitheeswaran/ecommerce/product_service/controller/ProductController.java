@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/products")
 public class ProductController {
 
-    @GetMapping()
+    @GetMapping
     public String getAllProducts(@RequestParam (required = false) String page, @RequestParam (required = false) String size) {
         return "List of all products";
     }
@@ -21,7 +21,7 @@ public class ProductController {
         return "Search results for query: " + q;
     }
 
-    @PostMapping()
+    @PostMapping
     public String createProduct() {
         // Flow: Create Product (Admin)
         // 1. Validate product details

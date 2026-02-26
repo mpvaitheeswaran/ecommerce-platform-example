@@ -27,6 +27,34 @@ services:
       - app-network
     restart: unless-stopped
 
+  product-service:
+    build:
+      context: .
+      dockerfile: product-service/Dockerfile
+    ports:
+      - "8087:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - service-registry
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  cart-service:
+    build:
+      context: .
+      dockerfile: cart-service/Dockerfile
+    ports:
+      - "8088:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - service-registry
+    networks:
+      - app-network
+    restart: unless-stopped
+
   inventory-service:
     build:
       context: .

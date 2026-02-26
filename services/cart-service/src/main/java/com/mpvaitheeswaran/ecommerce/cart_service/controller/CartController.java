@@ -15,7 +15,7 @@ public class CartController {
         return "Item added to cart successfully";
     }
 
-    @GetMapping()
+    @GetMapping
     public String getCart() {
         return "Cart details";
     }
