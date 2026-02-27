@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/orders/**
+
+        - id: cart-service
+          uri: lb://cart-service
+          predicates:
+            - Path=/cart/**
+
+        - id: inventory-service
+          uri: lb://inventory-service
+          predicates:
+            - Path=/inventory/**
+
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
+
+        - id: payment-service
+          uri: lb://payment-service
+          predicates:
+            - Path=/payments/**
+
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+
+# default: not needed but showing for completeness
+eureka:
+  client:
+    # Try 5 times to connect before giving up
+    eureka-service-url-poll-interval-seconds: 5
+    fetch-registry: true
+    serviceUrl:
+      # Use the SERVICE NAME from your docker-compose file
+      defaultZone: http://service-registry:8762/eureka/
+  instance:
+    # Highly recommended for Docker environments
+    prefer-ip-address: true

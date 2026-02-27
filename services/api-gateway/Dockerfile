@@ -20,22 +20,22 @@ COPY user-service/pom.xml user-service/
 COPY auth-service/pom.xml auth-service/
 
 # 3. Cache dependencies for this specific module
-RUN mvn -pl user-service dependency:go-offline -B
+RUN mvn -pl api-gateway dependency:go-offline -B
 
-# 4. Copy the user-service source code
-COPY user-service/src user-service/src
+# 4. Copy the service-registry source code
+COPY api-gateway/src api-gateway/src
 
 
-# 5. Build only the user-service module
-# -am: Also make dependencies (if user-service depends on a shared-module)
-RUN mvn clean package -pl user-service -am -DskipTests
+# 5. Build only the api-gateway module
+# -am: Also make dependencies (if api-gateway depends on a shared-module)
+RUN mvn clean package -pl api-gateway -am -DskipTests
 
 # -------- Stage 2: Run --------
 FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
-COPY --from=build /app/user-service/target/*.jar app.jar
+COPY --from=build /app/api-gateway/target/*.jar app.jar
 
 EXPOSE 8080
 

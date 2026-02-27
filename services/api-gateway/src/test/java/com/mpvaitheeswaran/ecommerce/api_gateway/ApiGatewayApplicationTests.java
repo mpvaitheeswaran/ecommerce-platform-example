@@ -1,4 +1,4 @@
-package com.mpvaitheeswaran.ecommerce.cart_service;
+package com.mpvaitheeswaran.ecommerce.api_gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

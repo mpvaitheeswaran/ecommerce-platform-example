@@ -1,4 +1,4 @@
-package com.mpvaitheeswaran.ecommerce.cart_service.controller;
+package com.mpvaitheeswaran.ecommerce.api_gateway.controller;
 
 import org.springframework.web.bind.annotation.*;
 

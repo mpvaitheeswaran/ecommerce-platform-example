@@ -8,10 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 	<groupId>com.mpvaitheeswaran.ecommerce</groupId>
-	<artifactId>cart-service</artifactId>
+	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cart-service</name>
-	<description>Demo ecommerce  platform cart-service  application for Spring Boot microservices </description>
+	<name>api-gateway</name>
+	<description>Demo ecommerce  platform api-gateway  for Spring Boot microservices </description>
 	<url/>
 	<licenses>
 		<license/>
@@ -26,14 +26,29 @@
 		<url/>
 	</scm>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+        <!-- Gateway -->
+        <!-- Source: https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-gateway -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+        <!-- Eureka Client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
+        <!-- Actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 
 	</dependencies>
 

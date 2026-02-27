@@ -9,6 +9,7 @@ COPY pom.xml .
 # 2. Copy ALL module POMs (the skeleton)
 # This satisfies Maven's requirement that all <modules> exist
 COPY service-registry/pom.xml service-registry/
+COPY api-gateway/pom.xml api-gateway/
 COPY order-service/pom.xml order-service/
 COPY product-service/pom.xml product-service/
 COPY cart-service/pom.xml cart-service/
@@ -30,7 +31,7 @@ COPY service-registry/src service-registry/src
 RUN mvn clean package -pl service-registry -am -DskipTests
 
 # -------- Stage 2: Run --------
-FROM eclipse-temurin:25-jdk
+FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
