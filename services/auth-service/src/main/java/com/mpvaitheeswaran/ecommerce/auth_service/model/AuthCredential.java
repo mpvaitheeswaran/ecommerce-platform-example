@@ -39,6 +39,7 @@ public class AuthCredential {
     @Column(name = "is_mobile_verified")
     private boolean isMobileVerified = false;
 
+    @Builder.Default
     @Column(name = "is_active")
     private boolean isActive = true;
 
@@ -48,15 +49,18 @@ public class AuthCredential {
     @Column(name = "locked_until")
     private Instant lockedUntil;
 
+    @Builder.Default
     @Column(name = "failed_attempts")
     private int failedAttempts = 0;
 
     @Column(name = "last_login_at")
     private Instant lastLoginAt;
 
+    @Builder.Default
     @Column(name = "created_at", updatable = false)
     private Instant createdAt = Instant.now();
 
+    @Builder.Default
     @Column(name = "updated_at")
     private Instant updatedAt = Instant.now();
 

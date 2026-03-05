@@ -1,0 +1,31 @@
+### Register a New User
+POST http://localhost:8080/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "name": "Arun Kumar",
+  "email": "arun@example.com",
+  "mobile": "9876543210",
+  "password": "Secure@123",
+  "role": "CUSTOMER"
+}
+
+> {% client.global.set("user_email", response.body.email); %}
+
+### Login
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "arun@example.com",
+  "password": "Secure@123"
+}
+
+### Verify OTP (Using the record we created)
+POST http://localhost:8080/api/v1/auth/verify-otp
+Content-Type: application/json
+
+{
+  "userId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "otp": "937247"
+}

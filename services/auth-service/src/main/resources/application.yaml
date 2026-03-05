@@ -2,7 +2,7 @@ spring:
   application:
     name: auth-service
   datasource:
-    url: jdbc:h2:mem:userdb
+    url: "jdbc:h2:mem:authDb;INIT=RUNSCRIPT FROM 'classpath:schema-h2.sql'"
     driver-class-name: org.h2.Driver
     username: sa
     password: ""
@@ -49,6 +49,6 @@ eureka:
     prefer-ip-address: true
 
 jwt:
-  secret: ${JWT_SECRET}          # min 64-char random string in env var
+  secret: ${JWT_SECRET:12cb2175f8b3b3c1c20bab54b3a300444246a3f692c3ae546789bc5cb7d86365bdf7913edde5ba7827a18b3eeca27233ae36320487d5357bdd9394d7abac0d8c}          # min 64-char random string in env var
   access-token-expiry-ms: 900000       # 15 minutes
   refresh-token-expiry-ms: 2592000000  # 30 days

@@ -125,6 +125,15 @@ services:
       - app-network
     restart: unless-stopped
 
+  redis:
+    image: redis:7-alpine
+    container_name: auth-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+    restart: always
+
   auth-service:
     build:
       context: .
@@ -133,8 +142,12 @@ services:
       - "8086:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      # Map the hostname to the Redis service name defined above
+      - SPRING_DATA_REDIS_HOST=redis
+      - SPRING_DATA_REDIS_PORT=6379
     depends_on:
       - service-registry
+      - redis # Ensure Redis starts before auth-service
     networks:
       - app-network
     restart: unless-stopped
